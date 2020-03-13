@@ -8,7 +8,7 @@ public class ResponseContext {
 
     private CheckState checkState;
 
-    private String JwtToken;
+    private String jwtToken;
 
     private String requestStatus;
 
@@ -33,11 +33,11 @@ public class ResponseContext {
     }
 
     public String getJwtToken() {
-        return JwtToken;
+        return jwtToken;
     }
 
     public void setJwtToken(String jwtToken) {
-        JwtToken = jwtToken;
+        this.jwtToken = jwtToken;
     }
 
     public String getRequestStatus() {

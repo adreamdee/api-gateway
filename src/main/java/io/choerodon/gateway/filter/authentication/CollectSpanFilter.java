@@ -65,7 +65,7 @@ public class CollectSpanFilter implements HelperFilter {
     }
 
     private void staticInvokeCount(String key, String value) {
-        if (stringRedisTemplate.hasKey(key)) {
+        if (Boolean.TRUE.equals(stringRedisTemplate.hasKey(key))) {
             stringRedisTemplate.opsForZSet().incrementScore(key, value, 1);
         } else {
             stringRedisTemplate.opsForZSet().add(key, value, 1);

@@ -26,7 +26,7 @@ import io.choerodon.gateway.service.GetUserDetailsService;
 public class GetUserDetailsServiceImpl implements GetUserDetailsService {
 
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(GetUserDetailsService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(GetUserDetailsServiceImpl.class);
 
     private static final String PRINCIPAL = "principal";
 

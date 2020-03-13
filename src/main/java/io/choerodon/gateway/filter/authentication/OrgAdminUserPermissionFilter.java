@@ -52,7 +52,7 @@ public class OrgAdminUserPermissionFilter implements HelperFilter {
         ProjectDTO projectDTO = projectMapper.selectByPrimaryKey(projectId);
 
         Boolean isOrgAdmin = userMapper.isOrgAdministrator(projectDTO.getOrganizationId(), customUserDetails.getUserId());
-        if (isOrgAdmin) {
+        if (Boolean.TRUE.equals(isOrgAdmin)) {
             context.response.setStatus(CheckState.SUCCESS_ADMIN);
             context.response.setMessage("Org admin user have access to the interface, username: "
                     + context.getCustomUserDetails().getUsername());

@@ -32,7 +32,7 @@ public class PermissionDisableOrSkipFilter implements HelperFilter {
 
     @Override
     public boolean run(RequestContext context) {
-        if (!gatewayHelperProperties.getPermission().getEnabled()) {
+        if (Boolean.FALSE.equals(gatewayHelperProperties.getPermission().getEnabled())) {
             context.response.setStatus(CheckState.SUCCESS_PERMISSION_DISABLED);
             context.response.setMessage("Permission check disabled");
             return false;

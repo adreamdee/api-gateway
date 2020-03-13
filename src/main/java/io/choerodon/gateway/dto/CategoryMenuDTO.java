@@ -19,7 +19,7 @@ public class CategoryMenuDTO extends BaseDTO {
 
     private String categoryCode;
     private String menuCode;
-    private String ResourceLevel;
+    private String resourceLevel;
 
     public Long getId() {
         return id;
@@ -46,10 +46,10 @@ public class CategoryMenuDTO extends BaseDTO {
     }
 
     public String getResourceLevel() {
-        return ResourceLevel;
+        return resourceLevel;
     }
 
     public void setResourceLevel(String resourceLevel) {
-        ResourceLevel = resourceLevel;
+        this.resourceLevel = resourceLevel;
     }
 }

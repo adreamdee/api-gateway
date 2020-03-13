@@ -19,6 +19,8 @@ import java.util.function.Function;
 
 class DefaultRedisCacheWriter implements RedisCacheWriter {
 
+    private static final String NAME_NOT_BE_NULL= "Name must not be null!";
+    private static final String KEY_NOT_BE_NULL= "Key must not be null!";
     private final RedisConnectionFactory connectionFactory;
     private final Duration sleepTime;
 
@@ -51,8 +53,8 @@ class DefaultRedisCacheWriter implements RedisCacheWriter {
     @Override
     public void put(String name, byte[] key, byte[] value, @Nullable Duration ttl) {
 
-        Assert.notNull(name, "Name must not be null!");
-        Assert.notNull(key, "Key must not be null!");
+        Assert.notNull(name, NAME_NOT_BE_NULL);
+        Assert.notNull(key, KEY_NOT_BE_NULL);
         Assert.notNull(value, "Value must not be null!");
 
         execute(name, connection -> {
@@ -75,8 +77,8 @@ class DefaultRedisCacheWriter implements RedisCacheWriter {
     @Override
     public byte[] get(String name, byte[] key) {
 
-        Assert.notNull(name, "Name must not be null!");
-        Assert.notNull(key, "Key must not be null!");
+        Assert.notNull(name, NAME_NOT_BE_NULL);
+        Assert.notNull(key, KEY_NOT_BE_NULL);
 
         return execute(name, connection -> connection.get(key));
     }
@@ -89,8 +91,8 @@ class DefaultRedisCacheWriter implements RedisCacheWriter {
     @Override
     public byte[] putIfAbsent(String name, byte[] key, byte[] value, @Nullable Duration ttl) {
 
-        Assert.notNull(name, "Name must not be null!");
-        Assert.notNull(key, "Key must not be null!");
+        Assert.notNull(name, NAME_NOT_BE_NULL);
+        Assert.notNull(key, KEY_NOT_BE_NULL);
         Assert.notNull(value, "Value must not be null!");
 
         return execute(name, connection -> {
@@ -100,7 +102,7 @@ class DefaultRedisCacheWriter implements RedisCacheWriter {
             }
 
             try {
-                if (connection.setNX(key, value)) {
+                if (Boolean.TRUE.equals(connection.setNX(key, value))) {
 
                     if (shouldExpireWithin(ttl)) {
                         connection.pExpire(key, ttl.toMillis());
@@ -126,8 +128,8 @@ class DefaultRedisCacheWriter implements RedisCacheWriter {
     @Override
     public void remove(String name, byte[] key) {
 
-        Assert.notNull(name, "Name must not be null!");
-        Assert.notNull(key, "Key must not be null!");
+        Assert.notNull(name, NAME_NOT_BE_NULL);
+        Assert.notNull(key, KEY_NOT_BE_NULL);
 
         execute(name, connection -> connection.del(key));
     }
@@ -140,7 +142,7 @@ class DefaultRedisCacheWriter implements RedisCacheWriter {
     @Override
     public void clean(String name, byte[] pattern) {
 
-        Assert.notNull(name, "Name must not be null!");
+        Assert.notNull(name, NAME_NOT_BE_NULL);
         Assert.notNull(pattern, "Pattern must not be null!");
 
         execute(name, connection -> {
