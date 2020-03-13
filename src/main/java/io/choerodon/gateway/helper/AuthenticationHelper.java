@@ -31,8 +31,6 @@ public class AuthenticationHelper {
 
     private static final String ACCESS_TOKEN_PREFIX_UPPER_STARTED = "Bearer";
 
-    private static final String ROUTE_RULE = "route-rule";
-
     private List<HelperFilter> helperFilters;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AuthenticationHelper.class);

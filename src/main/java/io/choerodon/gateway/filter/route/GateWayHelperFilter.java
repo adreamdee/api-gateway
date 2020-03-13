@@ -2,8 +2,6 @@ package io.choerodon.gateway.filter.route;
 
 import io.choerodon.gateway.domain.ResponseContext;
 import io.choerodon.gateway.helper.AuthenticationHelper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 
 import javax.servlet.*;
@@ -22,8 +20,6 @@ import java.io.PrintWriter;
  * @author flyleft
  */
 public class GateWayHelperFilter implements Filter {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(GateWayHelperFilter.class);
 
     private static final int GATEWAY_HELPER_NOT_PASS = 403;
 

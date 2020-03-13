@@ -18,7 +18,7 @@ import static io.choerodon.gateway.filter.authentication.GetRequestRouteFilter.R
 @Service
 public class PermissionServiceImpl implements PermissionService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(PermissionService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PermissionServiceImpl.class);
 
     private final AntPathMatcher matcher = new AntPathMatcher();
 

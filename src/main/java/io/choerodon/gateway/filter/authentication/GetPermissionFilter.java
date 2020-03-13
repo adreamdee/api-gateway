@@ -37,7 +37,7 @@ public class GetPermissionFilter implements HelperFilter {
             context.response.setStatus(CheckState.PERMISSION_MISMATCH);
             context.response.setMessage("This request mismatch any permission");
             return false;
-        } else if (permission.getWithin()) {
+        } else if (Boolean.TRUE.equals(permission.getWithin())) {
             context.response.setStatus(CheckState.PERMISSION_WITH_IN);
             context.response.setMessage("No access to within interface");
             return false;
