@@ -95,6 +95,9 @@ zuul:
     hrds-doc-repo:
       path: /rdudm/**
       serviceId: hrds-doc-repo
+    hrds-prod-repo:
+      path: /rdupm/**
+      serviceId: hrds-prod-repo
   semaphore:
     max-semaphores: 300
   sensitiveHeaders: Cookie,Set-Cookie
