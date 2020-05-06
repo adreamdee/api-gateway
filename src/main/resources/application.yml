@@ -98,6 +98,9 @@ zuul:
     hrds-prod-repo:
       path: /rdupm/**
       serviceId: hrds-prod-repo
+    hrds-env-service:
+      path: /rduem/**
+      serviceId: hrds-env-service
   semaphore:
     max-semaphores: 300
   sensitiveHeaders: Cookie,Set-Cookie
